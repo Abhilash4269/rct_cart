@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import './App.css'
+import items from './Card'
 
 const pages = ['Home', 'About', 'Shop'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -28,7 +29,7 @@ const ResponsiveAppBar = (props) => {
     };
 
     return (
-        <AppBar position="static" id='bar'>
+        <AppBar position="sticky" id='bar'>
             <Container maxWidth="xl" >
                 <Toolbar disableGutters>
                     <Typography
