@@ -1,19 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ResponsiveAppBar from './Header';
-import Info from './Info'
-import Body from './Body'
-import Footer from './Footer'
+import App from './App.js'
+
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <>
-      <ResponsiveAppBar yolo='yoyo'/>
-      <Info />
-      <Body />
-      <Footer />
+      <App />
     </>
   </React.StrictMode>,
   document.getElementById('root')

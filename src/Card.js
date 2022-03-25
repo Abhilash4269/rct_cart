@@ -13,13 +13,16 @@ let items = 0;
 const MultiActionAreaCard = (props) => {
 
     const[render,setRender] = useState(true);
+    
 
     const Increment = ()=>{
 
         console.log(props.nam);
         setRender(!render)
+        // setScore(score+=1)
         items += 1
         console.log(items)
+        // console.log(score)
     
     }
 
@@ -27,8 +30,10 @@ const MultiActionAreaCard = (props) => {
 
         console.log(props.nam);
         setRender(!render)
+        // setScore(score-=1)
         items -= 1
         console.log(items)
+        // console.log(score)
        }
 
 
