@@ -14,12 +14,14 @@ import MenuItem from '@mui/material/MenuItem';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MultiActionAreaCard from './Card'
 import './App.css'
-// import items from './Card'
 
 const pages = ['Home', 'About', 'Shop'];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+
 
 const ResponsiveAppBar = (props) => {
+
+
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     //   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -31,7 +33,19 @@ const ResponsiveAppBar = (props) => {
         setAnchorElNav(null);
     };
 
-    let[score,setScore] = useState(0);
+    const [score,setScore] = useState(0);
+
+    const handleClick =(e)=>{
+       console.log(e.target.textContent) 
+       if(e.target.textContent==='Add to cart'){
+            e.target.textContent = 'Remove from cart';
+            setScore(score+1) 
+       }
+       else{
+           e.target.textContent= 'Add to cart';
+           setScore(score-1)
+       }
+    }
 
     return (
         <>
@@ -114,7 +128,7 @@ const ResponsiveAppBar = (props) => {
 
                         <Box sx={{ flexGrow: 0 }}>
 
-                            <Button className='btn' startIcon={<ShoppingCartIcon />}>Cart &nbsp;<p className='cart'>0</p></Button>
+                            <Button className='btn' startIcon={<ShoppingCartIcon />}>Cart &nbsp;<p className='cart'>{score}</p></Button>
 
                         </Box>
 
@@ -130,14 +144,14 @@ const ResponsiveAppBar = (props) => {
 
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', marginInline: '150px' }}>
 
-                <MultiActionAreaCard items='Fancy Product' sale={false} price='$40.00 - $80.00' popular={false} nam='1' cart={true} />
-                <MultiActionAreaCard items='Special Item' sale={true} price='$18.00' popular={true} dprice='$20.00' nam='2' cart={true} />
-                <MultiActionAreaCard items='Sale Item' sale={true} price='$25.00' popular={false} dprice='$50.00' nam='3' cart={true} />
-                <MultiActionAreaCard items='Popular Item' sale={false} price='$40.00' popular={true} nam='4' cart={true} />
-                <MultiActionAreaCard items='Sale Item' sale={true} price='$25.00' popular={false} dprice='$50.00' nam='5' cart={true} />
-                <MultiActionAreaCard items='Fancy Product' sale={false} price='$120.00 - $280.00' popular={false} nam='6' cart={true} />
-                <MultiActionAreaCard items='Special Item' sale={true} price='$18.00' dprice='$20.00' popular={true} nam='7' cart={true} />
-                <MultiActionAreaCard items='Popular Item' sale={false} price='$40.00' popular={true} nam='8' cart={true} />
+                <MultiActionAreaCard items='Fancy Product' sale={false} price='$40.00 - $80.00' popular={false} nam='1' cart={true} click={(e)=>handleClick(e)}/>
+                <MultiActionAreaCard items='Special Item' sale={true} price='$18.00' popular={true} dprice='$20.00' nam='2' cart={true}  click={(e)=>handleClick(e)}/>
+                <MultiActionAreaCard items='Sale Item' sale={true} price='$25.00' popular={false} dprice='$50.00' nam='3' cart={true}  click={(e)=>handleClick(e)}/>
+                <MultiActionAreaCard items='Popular Item' sale={false} price='$40.00' popular={true} nam='4' cart={true}  click={(e)=>handleClick(e)}/>
+                <MultiActionAreaCard items='Sale Item' sale={true} price='$25.00' popular={false} dprice='$50.00' nam='5' cart={true}  click={(e)=>handleClick(e)}/>
+                <MultiActionAreaCard items='Fancy Product' sale={false} price='$120.00 - $280.00' popular={false} nam='6' cart={true}  click={(e)=>handleClick(e)}/>
+                <MultiActionAreaCard items='Special Item' sale={true} price='$18.00' dprice='$20.00' popular={true} nam='7' cart={true}  click={(e)=>handleClick(e)}/>
+                <MultiActionAreaCard items='Popular Item' sale={false} price='$40.00' popular={true} nam='8' cart={true}  click={(e)=>handleClick(e)}/>
 
             </div>
         </>

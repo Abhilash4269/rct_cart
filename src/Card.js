@@ -1,40 +1,13 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-// import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import './App.css'
 import Rating from '@mui/material/Rating';
-import { useState } from 'react';
 
-let items = 0;
 
 const MultiActionAreaCard = (props) => {
-
-    const[render,setRender] = useState(true);
-    
-
-    const Increment = ()=>{
-
-        console.log(props.nam);
-        setRender(!render)
-        // setScore(score+=1)
-        items += 1
-        console.log(items)
-        // console.log(score)
-    
-    }
-
-    const Decrement = ()=>{
-
-        console.log(props.nam);
-        setRender(!render)
-        // setScore(score-=1)
-        items -= 1
-        console.log(items)
-        // console.log(score)
-       }
 
 
     return (
@@ -69,10 +42,7 @@ const MultiActionAreaCard = (props) => {
             </CardActionArea>
 
             <CardActions style={{ justifyContent: 'center' , position:'relative',bottom:'1px'}}>
-                {
-                    render? <Button size="small" variant="contained" className='btn' style={{ backgroundColor: 'white'}} onClick={Increment} >Add to cart</Button> 
-                    : <Button size="small" variant="contained" className='btn' style={{ backgroundColor: 'white'}} onClick={Decrement} >Remove</Button>
-                }
+            <Button size="small" variant="contained" className='btn' style={{ backgroundColor: 'white'}} onClick={(e)=>props.click(e)} >Add to cart</Button> 
 
                 
 
